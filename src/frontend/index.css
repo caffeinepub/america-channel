@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ── */
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/assets/fonts/MonaSans[wdth,wght].woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk[wght].woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces[SOFT,WONK,ital,opsz,wght].woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal oblique;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Patriotic American Palette - Navy / Red / Gold */
+    --radius: 0.5rem;
+
+    /* Light mode - clean American look */
+    --background: 0.97 0.003 240;
+    --foreground: 0.12 0.02 240;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.02 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.02 240;
+
+    /* Primary = Deep Navy */
+    --primary: 0.22 0.06 255;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary = Crimson Red */
+    --secondary: 0.55 0.22 25;
+    --secondary-foreground: 0.99 0 0;
+
+    /* Accent = Gold/Yellow */
+    --accent: 0.82 0.18 85;
+    --accent-foreground: 0.12 0.02 240;
+
+    --muted: 0.93 0.01 240;
+    --muted-foreground: 0.5 0.02 240;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.88 0.01 240;
+    --input: 0.88 0.01 240;
+    --ring: 0.22 0.06 255;
+
+    --chart-1: 0.22 0.06 255;
+    --chart-2: 0.55 0.22 25;
+    --chart-3: 0.82 0.18 85;
+    --chart-4: 0.6 0.118 184.704;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.18 0.05 255;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.82 0.18 85;
+    --sidebar-primary-foreground: 0.12 0.02 240;
+    --sidebar-accent: 0.25 0.05 255;
+    --sidebar-accent-foreground: 0.95 0 0;
+    --sidebar-border: 0.3 0.05 255;
+    --sidebar-ring: 0.82 0.18 85;
+
+    /* Custom extras */
+    --navy: 0.22 0.06 255;
+    --navy-dark: 0.16 0.07 255;
+    --navy-light: 0.3 0.08 255;
+    --crimson: 0.55 0.22 25;
+    --crimson-light: 0.65 0.18 25;
+    --gold: 0.82 0.18 85;
+    --gold-light: 0.9 0.16 90;
+    --star-white: 0.99 0 0;
+  }
+
+  .dark {
+    --background: 0.13 0.04 255;
+    --foreground: 0.95 0.01 240;
+    --card: 0.18 0.05 255;
+    --card-foreground: 0.95 0.01 240;
+    --popover: 0.2 0.05 255;
+    --popover-foreground: 0.95 0.01 240;
+
+    --primary: 0.82 0.18 85;
+    --primary-foreground: 0.12 0.02 240;
+
+    --secondary: 0.6 0.18 25;
+    --secondary-foreground: 0.99 0 0;
+
+    --accent: 0.82 0.18 85;
+    --accent-foreground: 0.12 0.02 240;
+
+    --muted: 0.22 0.04 255;
+    --muted-foreground: 0.65 0.02 240;
+
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 12%;
+    --ring: 0.82 0.18 85;
+
+    --chart-1: 0.82 0.18 85;
+    --chart-2: 0.6 0.18 25;
+    --chart-3: 0.5 0.12 255;
+    --chart-4: 0.696 0.17 162.48;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.14 0.05 255;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.82 0.18 85;
+    --sidebar-primary-foreground: 0.12 0.02 240;
+    --sidebar-accent: 0.2 0.05 255;
+    --sidebar-accent-foreground: 0.95 0 0;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.82 0.18 85;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Mona Sans", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ── Custom Utilities ── */
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", serif;
+  }
+  .font-heading {
+    font-family: "Cabinet Grotesk", sans-serif;
+  }
+  .font-body {
+    font-family: "Mona Sans", sans-serif;
+  }
+
+  .text-navy {
+    color: oklch(var(--navy));
+  }
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+  .bg-navy-dark {
+    background-color: oklch(var(--navy-dark));
+  }
+  .bg-navy-light {
+    background-color: oklch(var(--navy-light));
+  }
+  .text-crimson {
+    color: oklch(var(--crimson));
+  }
+  .bg-crimson {
+    background-color: oklch(var(--crimson));
+  }
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+
+  /* Stars background pattern */
+  .stars-pattern {
+    background-image: radial-gradient(oklch(var(--gold) / 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Gradient overlays */
+  .gradient-navy-to-transparent {
+    background: linear-gradient(to bottom, oklch(var(--navy-dark)), transparent);
+  }
+  .gradient-american {
+    background: linear-gradient(135deg, oklch(var(--navy-dark)) 0%, oklch(var(--navy)) 40%, oklch(var(--crimson)) 100%);
+  }
+
+  /* Video thumbnail gradient */
+  .thumb-gradient {
+    background: linear-gradient(135deg, oklch(var(--navy)) 0%, oklch(var(--navy-light)) 50%, oklch(var(--crimson)) 100%);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--navy) / 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--navy) / 0.6);
+}
